@@ -1,0 +1,8 @@
+{
+  "goerli": {
+    "web3": {
+      "address": "0x54f71fA4778C67E5DE8C8E82544BAdf5CCCbDc9f",
+      "startBlock": 8577966
+    }
+  }
+}

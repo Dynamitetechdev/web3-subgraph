@@ -1,0 +1,33 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: web3
+    network: goerli
+    source:
+      address: "0x54f71fA4778C67E5DE8C8E82544BAdf5CCCbDc9f"
+      abi: web3
+      startBlock: 8577966
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - Transfer
+        - nftId
+      abis:
+        - name: web3
+          file: web3/abis/web3.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: nftId(indexed uint256)
+          handler: handlenftId
+      file: web3/web3.wasm
